@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>营销线索检索与推送</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <script src="js/flexible_css.js"></script>
+    <script src="js/flexible.js"></script>
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/page/datalist.css">
+</head>
+<body>
+    <div class="container datalist" id="datalist">
+        <div class="search">
+            <div class="search-input">
+                <div class="icon-search"></div>
+                <input type="text" value="" placeholder="请输入关键字" class="txt-search" id="txt-extra">
+                <button type="button" class="btn-search" v-on:click="search()">查询</button>
+                <div class="clear"></div>
+            </div>
+            <div class="search-item">
+                <ul class="items">
+                    <li id="province" v-on:click="select('province')"><span>区域</span><span class="down"></span></li>
+                    <li id="vocation" v-on:click="select('vocation')"><span>行业</span><span class="down"></span></li>
+                    <li id="size" v-on:click="select('size')"><span>规模</span><span class="down"></span></li>
+                    <li id="website" v-on:click="select('website')"><span>来源</span><span class="down"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="li-info">
+            <div class="li-items">
+                <ul id="province-items">
+                    <li v-for="(value,key) in provinceMap" v-bind:data-id="value.id">{{value.name}}</li>
+                </ul>
+                <ul id="vocation-items">
+                    <li v-for="(value,key) in vocationMap" v-bind:data-id="value.vocationCode">{{value.vocationName}}</li>
+                </ul>
+                <ul id="size-items">
+                    <li data-id="1">0-50人</li>
+                    <li data-id="2">51-150人</li>
+                    <li data-id="3">151-500人</li>
+                    <li data-id="4">501-2000人</li>
+                    <li data-id="5">2000人以上</li>
+                </ul>
+                <ul id="website-items">
+                    <li data-id="1">58同城</li>
+                    <li data-id="2">3158招商加盟</li>
+                    <li data-id="3">黄页88</li>
+                    <li data-id="4">企查查</li>
+                    <li data-id="5">智联招聘</li>
+                    <li data-id="6">前程无忧</li>
+                    <li data-id="7">赶集网</li>
+                </ul>
+            </div>
+            <div class="li-btns">
+                <button type="button" class="li-btn" id="reset-search">重置</button>
+                <button type="button" class="li-btn btn-blue" v-on:click="search()">确定</button>
+            </div>
+        </div>
+        <div class="blank" v-if="tableData.totalCount<=0">
+            <span class="icon-blank"></span>
+            <span class="icon-front">没有找到符合条件的数据</span>
+        </div>
+        <div class="msg" v-if="tableData.totalCount>0">
+            <div class="msg-left">您今天的推送额度：<span>{{pushData.pushedCount}}/{{pushData.pushTotal}}</span></div>
+            <div class="msg-right">
+                <div class="progress">
+                    <div class="progressing" v-bind:style={"width":pushData.percent}></div>
+                </div>
+            </div>
+        </div>
+        <div class="list" v-if="tableData.totalCount>0">
+            <ul>
+                <li v-for="(value,key) in tableData.list" v-bind:data-id="value.id">
+                    <div class="list-left">
+                        <h3>{{value.company}}</h3>
+                        <div class="item-info">
+                            <span v-if="value.mobile!=''">{{value.mobile}}</span>
+                            <span v-if="value.province!=''">{{value.province}}</span>
+                            <span v-if="value.name!=''">{{value.name}}</span>
+                        </div>
+                    </div>
+                    <div class="list-right">
+                        <button type="button" class="com-btn" v-on:click="push(value.id)" v-if="pushData.pushedCount<pushData.pushTotal">推送</button>
+                        <button type="button" class="com-btn" v-if="pushData.pushedCount>=pushData.pushTotal" style="cursor:no-drop;">推送</button>
+                    </div>
+                </li>
+            </ul>
+            <div class="more" v-on:click="next()" v-if="tableData.totalPage>2">换一批</div>
+        </div>
+        <div class="nav-list">
+            <div class="nav-search">
+                <span class="current">
+                    <span class="nav-icon-search"></span>
+                    <span class="nav-front">线索</span>
+                </span>
+            </div>
+            <div class="nav-static">
+                <span onclick="window.location.href='statistics.html'">
+                    <span class="nav-icon-static"></span>
+                    <span class="nav-front">统计</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="shade-items">
+        <div class="shade"></div>
+        <div class="shade-msg">线索数据推送成功</div>
+        <div class="shade-close"></div>
+    </div>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/page/main.js"></script>
+    <script src="js/page/datalist.js"></script>
+</body>
+</html>
