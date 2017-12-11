@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>营销线索数据统计</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <script src="js/flexible_css.js"></script>
+    <script src="js/flexible.js"></script>
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/page/statistics-new.css?v=cd09162">
+
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/json2.min.js"></script>
+</head>
+<body>
+    <div class="container statistics-3">
+        <div class="tab-list">
+            <ul>
+                <li onclick="window.location.href='statistics-1.html'">线索统计</li>
+                <li class="current" onclick="window.location.href='statistics-2.html'">营销统计</li>
+            </ul>
+        </div>
+        <div class="statistics-content">
+            <div class="search-box">
+                <div class="search-year">
+                    <span class="tyear" data-v="2017">2017年</span><span></span>
+                    <ul>
+                        <li data-v="2017">2017年</li>
+                    </ul>
+                </div>
+                <div class="search-month">
+                    <ul>
+                        <li class="on" data-v="12">12月</li>
+                        <li data-v="11">11月</li>
+                        <li data-v="10">10月</li>
+                        <li data-v="9">9月</li>
+                        <li data-v="8">8月</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table-box">
+                <table border="0" cellpadding="0" cellspacing="0" >
+                    <thead>
+                        <tr>
+                            <td>项目名称</td><td>技术</td><td>其他</td><td>市场</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>线索总量</td><td>0</td><td>0</td><td>0</td>
+                        </tr>
+                        <tr>
+                            <td>线索总量占比</td><td>0%</td><td>0%</td><td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>线索新增量</td><td>0</td><td>0</td><td>0</td>
+                        </tr>
+                        <tr>
+                            <td>线索新增占比</td><td>0%</td><td>0%</td><td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>意向量</td><td>0</td><td>0</td><td>0</td>
+                        </tr>
+                        <tr>
+                            <td>意向率</td><td>0%</td><td>0%</td><td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>接通量</td><td>0</td><td>0</td><td>0</td>
+                        </tr>
+                        <tr>
+                            <td>接通率</td><td>0%</td><td>0%</td><td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>有效沟通量</td><td>0</td><td>0</td><td>0</td>
+                        </tr>
+                        <tr>
+                            <td>有效沟通率</td><td>0%</td><td>0%</td><td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>成单量</td><td>0</td><td>0</td><td>0</td>
+                        </tr>
+                        <tr>
+                            <td>成单率</td><td>0%</td><td>0%</td><td>0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="nav-list">
+            <div class="nav-search">
+                <span onclick="window.location.href='datalist.html'">
+                    <span class="nav-icon-search"></span>
+                    <span class="nav-front">线索</span>
+                </span>
+            </div>
+            <div class="nav-static">
+                <span class="current" onclick="window.location.href='statistics-1.html'">
+                    <span class="nav-icon-static"></span>
+                    <span class="nav-front">统计</span>
+                </span>
+            </div>
+        </div>
+        <div class="change echarts" onclick="window.location.href='statistics-2.html'" id="change_box"></div>
+    </div>
+
+    <script src="js/page/base/common.js?v=cd09162"></script>
+    <script src="js/page/statistics-4.js?v=cd09162"></script>
+</body>
+</html>

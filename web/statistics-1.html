@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>营销线索数据统计</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <script src="js/flexible_css.js"></script>
+    <script src="js/flexible.js"></script>
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/page/statistics-new.css?v=cd09162">
+
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/echarts-map-china.min.js"></script>
+</head>
+<body>
+    <div class="container statistics-new">
+        <div class="tab-list">
+            <ul>
+                <li class="current">线索统计</li>
+                <li onclick="window.location.href='statistics-2.html'">营销统计</li>
+            </ul>
+        </div>
+        <div class="charts">
+            <!--爬取数据分布热点-->
+            <div class="charts-item item-1">
+                <div class="charts-item-title">
+                    <span class="item-icon-1"></span><h4>线索区域分布热点[<p>0</p>]</h4>
+                </div>
+                <div class="chart-item" id="chart-1" style="height: 7.6rem;"></div>
+            </div>
+            <!--二级区域数据分布详情-->
+            <div class="charts-item item-2" id="item-2">
+                <div class="charts-item-title">
+                    <span class="item-icon-2"></span><h4><p>北京</p>线索分布详情</h4><span class="item-sort" id="sort-2" data-code="1"></span>
+                </div>
+                <div class="chart-item" id="chart-2" style="height: 13rem;"></div>
+            </div>
+            <!--二级区域各行业数据分布情况-->
+            <div class="charts-item item-3" id="item-3">
+                <div class="charts-item-title">
+                    <span class="item-icon-3"></span><h4><p></p>行业数据</h4><span class="item-sort" id="sort-3" data-code="1"></span>
+                </div>
+                <div class="chart-item" id="chart-3">
+                    <ul>
+                        <li>
+                            <div class="li-data-bg">
+                                <div class="li-data" style="width:0%;"></div>
+                                <span class="font-left">体育/休闲/旅游/娱乐</span>
+                                <span>123</span>s
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="nav-list">
+            <div class="nav-search">
+                <span onclick="window.location.href='datalist.html'">
+                    <span class="nav-icon-search"></span>
+                    <span class="nav-front">线索</span>
+                </span>
+            </div>
+            <div class="nav-static">
+                <span class="current">
+                    <span class="nav-icon-static"></span>
+                    <span class="nav-front">统计</span>
+                </span>
+            </div>
+        </div>
+        <div class="com-height"></div>
+    </div>
+    <script src="js/page/base/common.js?v=cd09162"></script>
+    <script src="js/page/statistics-1.js?v=cd09162"></script>
+</body>
+</html>

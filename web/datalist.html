@@ -8,7 +8,7 @@
     <script src="js/flexible_css.js"></script>
     <script src="js/flexible.js"></script>
     <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/page/datalist.css">
+    <link rel="stylesheet" href="css/page/datalist.css?v=cd09162">
 </head>
 <body>
     <div class="container datalist" id="datalist">
@@ -72,7 +72,7 @@
         </div>
         <div class="list" v-if="tableData.totalCount>0">
             <ul>
-                <li v-for="(value,key) in tableData.list" v-bind:data-id="value.id">
+                <li v-for="(value,key) in tableData.list" v-bind:data-id="value.id" v-on:click="detail(value.id,value.companyScore)">
                     <div class="list-left">
                         <h3>{{value.company}}</h3>
                         <div class="item-info">
@@ -82,6 +82,7 @@
                         </div>
                     </div>
                     <div class="list-right">
+                        <p>评分：{{value.companyScore}}</p>
                         <button type="button" class="com-btn" v-on:click="push(value.id)" v-if="pushData.pushedCount<pushData.pushTotal">推送</button>
                         <button type="button" class="com-btn" v-if="pushData.pushedCount>=pushData.pushTotal" style="cursor:no-drop;">推送</button>
                     </div>
@@ -97,11 +98,41 @@
                 </span>
             </div>
             <div class="nav-static">
-                <span onclick="window.location.href='statistics.html'">
+                <span onclick="window.location.href='statistics-1.html'">
                     <span class="nav-icon-static"></span>
                     <span class="nav-front">统计</span>
                 </span>
             </div>
+        </div>
+        <div class="shade-detail" id="li-detail">
+            <div class="shade"></div>
+            <div class="shade-content">
+                <div class="shade-content-item">
+                    <p>{{detailInfo.company}}</p><p class="score">{{detailInfo.score}}</p><br>
+                    <!--<span>{{detailInfo.jobName}}</span>-->
+                </div>
+                <div class="shade-content-item">
+                    <p>招聘职位：</p><br>
+                    <span>{{detailInfo.jobName}}</span>
+                </div>
+                <div class="shade-content-item">
+                    <p>地址：</p><br>
+                    <span>{{detailInfo.address}}</span>
+                </div>
+                <div class="shade-content-item">
+                    <p>联系人：</p><br>
+                    <span>{{detailInfo.name}}</span>
+                </div>
+                <div class="shade-content-item">
+                    <p>联系电话：</p><br>
+                    <span>{{detailInfo.phone}}</span>
+                </div>
+                <div class="shade-content-btn">
+                    <button type="button" class="btn-com" v-on:click="push(detailInfo.id)" v-if="pushData.pushedCount<pushData.pushTotal">推送</button>
+                    <button type="button" class="btn-com"  v-if="pushData.pushedCount>=pushData.pushTotal" style="cursor:no-drop;">推送</button>
+                </div>
+            </div>
+            <div class="shade-close-1"></div>
         </div>
     </div>
     <div class="shade-items">
@@ -111,7 +142,7 @@
     </div>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/vue.min.js"></script>
-    <script src="js/page/main.js"></script>
-    <script src="js/page/datalist.js"></script>
+    <script src="js/page/main.js?v=cd09162"></script>
+    <script src="js/page/datalist.js?v=cd09162"></script>
 </body>
 </html>
