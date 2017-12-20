@@ -8,7 +8,7 @@
     <script src="js/flexible_css.js"></script>
     <script src="js/flexible.js"></script>
     <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/page/datalist.css?v=ae76529">
+    <link rel="stylesheet" href="css/page/datalist_a14628e.css">
 </head>
 <body>
     <div class="container datalist" id="datalist">
@@ -37,20 +37,10 @@
                     <li v-for="(value,key) in vocationMap" v-bind:data-id="value.vocationCode">{{value.vocationName}}</li>
                 </ul>
                 <ul id="size-items">
-                    <li data-id="1">0-50人</li>
-                    <li data-id="2">51-150人</li>
-                    <li data-id="3">151-500人</li>
-                    <li data-id="4">501-2000人</li>
-                    <li data-id="5">2000人以上</li>
+                    <li v-for="(value,key) in sizeMap" v-bind:data-id="value.id">{{value.name}}</li>
                 </ul>
                 <ul id="website-items">
-                    <li data-id="1">58同城</li>
-                    <li data-id="2">3158招商加盟</li>
-                    <li data-id="3">黄页88</li>
-                    <li data-id="4">企查查</li>
-                    <li data-id="5">智联招聘</li>
-                    <li data-id="6">前程无忧</li>
-                    <li data-id="7">赶集网</li>
+                    <li v-for="(value,key) in websiteMap" v-bind:data-id="value.id">{{value.name}}</li>
                 </ul>
             </div>
             <div class="li-btns">
@@ -134,6 +124,7 @@
             </div>
             <div class="shade-close-1"></div>
         </div>
+        <div class="com-height"></div>
     </div>
     <div class="shade-items">
         <div class="shade"></div>
@@ -142,7 +133,7 @@
     </div>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/vue.min.js"></script>
-    <script src="js/page/main.js?v=ae76529"></script>
-    <script src="js/page/datalist.js?v=ae76529"></script>
+    <script src="js/page/main_a14628e.js"></script>
+    <script src="js/page/datalist_a14628e.js"></script>
 </body>
 </html>
