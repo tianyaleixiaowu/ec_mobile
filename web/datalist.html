@@ -8,7 +8,7 @@
     <script src="js/flexible_css.js"></script>
     <script src="js/flexible.js"></script>
     <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/page/datalist_ab67a890.css?v=0091">
+    <link rel="stylesheet" href="css/page/datalist.css?v=23e45a">
 </head>
 <body>
     <div class="container datalist" id="datalist">
@@ -77,6 +77,7 @@
                         <button type="button" class="com-btn" v-if="pushData.pushedCount>=pushData.pushTotal" style="cursor:no-drop;">推送</button>
                     </div>
                 </li>
+                <div class="clear"></div>
             </ul>
             <div class="more" v-on:click="next()" v-if="tableData.totalPage>2">换一批</div>
         </div>
@@ -98,7 +99,8 @@
             <div class="shade"></div>
             <div class="shade-content">
                 <div class="shade-content-item">
-                    <p>{{detailInfo.company}}</p><p class="score">{{detailInfo.score}}</p><br>
+                    <p>{{detailInfo.company}}<span class="score">{{detailInfo.score}}</span></p>
+                    <div class="clear"></div>
                     <!--<span>{{detailInfo.jobName}}</span>-->
                 </div>
                 <div class="shade-content-item">
@@ -133,7 +135,7 @@
     </div>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/vue.min.js"></script>
-    <script src="js/page/main_ab67a890.js"></script>
-    <script src="js/page/datalist_ab67a890.js"></script>
+    <script src="js/page/main.js?v=23e45a"></script>
+    <script src="js/page/datalist.js?v=23e45a"></script>
 </body>
 </html>
